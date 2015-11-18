@@ -1,0 +1,162 @@
+nav ul{
+  list-style: none;
+  padding: 0px;
+  display: inline-block;
+  float:right;
+  margin-top: 1.5em;
+  margin-right: 5%;
+}
+
+nav h1{
+  display: inline-block;
+  margin-left:5%;
+}
+
+nav li {
+  display: inline;
+  margin-right: 10px
+}
+
+header{
+  padding-bottom: 5px;
+  background-color: mintcream;
+  box-shadow: 3px 3px 3px rgba(100, 100, 100, 0.5);
+  margin-bottom: 5px;
+}
+
+
+html, body{
+  margin: 0px;
+  padding:0px;
+}
+
+.testBox{
+  height:100px;
+  width:200px;
+  background-color: red;
+}
+
+.hidden{
+  max-height: calc(1em + 3px);
+  overflow: hidden;
+}
+
+.hide-toggle{
+  float:right;
+  margin-top: 1px;
+  margin-right: 4px;
+  margin-left: 4px;
+}
+
+movepiece{
+  display: inline-block;
+  border:1px solid #333;
+  background-color: mintcream;
+  box-shadow: 3px 3px 3px rgba(100, 100, 100, 0.5);
+  vertical-align: top;
+}
+
+.move-arrows{
+  margin-left: 2px;
+}
+
+.map-container{
+  width: 400px;
+}
+
+.map-container .settings{
+  width:60%;
+  display: inline-block;
+}
+
+.map-container .settings input{
+  max-width: 100%
+
+}
+
+.map-container .img-container{
+  width:35%;
+  position:relative;
+  display: inline-block;
+  vertical-align: top;
+
+
+}
+
+.map-container img{
+  max-width: 100%;
+  max-height: 10em;
+  padding:4px;
+}
+
+.map-container.over{
+  background-color: darkslategrey;
+}
+
+.gridBox{
+  padding:4px;
+}
+
+.newWorld img{
+  display: block;
+  margin: 4px auto;
+  max-width: 95%;
+  max-height: 10em;
+}
+
+.favorites {
+  float: right;
+}
+
+.link{
+  color:blue;
+}
+
+canvas{
+  
+}
+
+#battle-canvas{
+  transform:scale(1);
+  margin: 0px;
+  padding: 0px;
+  box-sizing:border-box;
+}
+
+.view-port{
+  overflow: auto;
+  padding: 04px;
+  margin: 0px;
+  display: blockk;
+
+}
+
+.col{
+  display: inline-block;
+  vertical-align: top;
+}
+
+.player-selector img{
+  max-width: 90%;
+  display: block;
+  margin: 4px auto;
+  max-height: 100px;
+  padding-bottom: 5px;
+}
+
+.selected{
+  background-color: #dce5e1;
+}
+
+.icon-list{
+  padding: 0px;
+}
+
+.icon-list li{
+  display: inline;
+  margin: 5px;
+}
+
+/*  *{
+  outline: 1px dashed red;
+}/* */

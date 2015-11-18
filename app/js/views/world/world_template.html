@@ -1,0 +1,41 @@
+<div class = 'col'>
+<movepiece title = "{{world.name}}">
+<battle-map world = "world" player = "selectedPlayer" dimensions = "viewDimensions"></battle-map>
+</movepiece>
+</div>
+
+<div class = 'col'>
+  <movepiece title = "Players" class = "player-selector">
+    <div ng-repeat = "player in world.players" ng-click = "selectPlayer(player)" ng-class = "{selected:selectedPlayer == player}">
+      name:<input type = "string" ng-model = "player.name"> <i ng-class="{'fa':true, 'fa-caret-up':playerScroll[player.name], 'fa-caret-down':!playerScroll[player.name]}" ng-click = "playerScroll[player.name] = !playerScroll[player.name]"></i>
+      <div ng-hide = "playerScroll[player.name]">
+        scale:<input type = "number" min =".1" step = "0.1" ng-model = "player.figure.scale">
+        <img ng-src = "{{player.figure.url}}">
+        <ul class = "icon-list">
+          <li ng-hide="player.opacity == 1" ng-click = "player.opacity = 1"><i class="fa fa-eye"></i></li>
+          <li ng-hide="player.opacity == .6" ng-click = "player.opacity = .6"><i class="fa fa-eye-slash"></i></li>
+          <li ng-hide="player.opacity == .2" ng-click = "player.opacity = .2"><i class="fa fa-magic"></i></li>
+          <li><i class="fa fa-trash-o"></i></li>
+        </ul>
+      </div>
+    </div>
+  </br>
+    Name: <input ng-model = "newPlayer.name">
+  </br>
+    Filter:<input ng-model = "filter" ></br> 
+    Portrait: <select ng-model = "newPlayer.figure" ng-options = "figure as figure.name for (key, figure) in characters | filter:filter"></select>
+    <img ng-src = "{{newPlayer.figure.url}}">
+    <button ng-click = 'addPlayer()'>Add Player</button>
+  </br>
+  </movepiece>
+</br>
+  <movepiece title = "World Settings">
+    View Height:<input type = "number" min = "50" step = "10" ng-model = "viewDimensions.viewportHeight">
+  </br>
+    View Width:<input type = "number" min = "50" step = "10" ng-model = "viewDimensions.viewportWidth">
+  </br>
+    Map Scale:<input type = "number" min = ".1" step = ".01" ng-model = "viewDimensions.canvasScale">
+  </br>
+    Player Scale:<input type = "number" min = "10" step = "1" ng-model = "world.map.playerSize" ng-change = "world.$save()">
+  </movepiece>
+</div>

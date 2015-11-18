@@ -1,0 +1,21 @@
+<movepiece title = "Existing Rooms">
+  <div ng-repeat = "world in worlds">
+    <span ng-click = "gotoWorld(world)" class = "link">{{world.name}}</span> <span class = "favorites"><i class="fa fa-heart" ng-click = "addFavorite($event, world)"></i>{{world.favorites}}</span>
+  </div>
+</movepiece>
+
+<movepiece title = "Create New Room" class = "newWorld">
+  <form ng-submit = "addNewWorld()">
+  Map:<select ng-model ="newWorld.map" ng-options="value as value.name for (key , value) in maps | filter:filter">
+  </select>
+  Filter:<input ng-model = "filter.name">
+</br>
+Name:<input ng-model = "newWorld.name">
+<button type = "submit" ng-disabled = "!(newWorld.name && newWorld.map)">Make Room</button>
+  </br>
+</form>
+<img ng-src = "{{newWorld.map.url}}" ng-show = "newWorld.map">
+
+</movepiece>
+
+

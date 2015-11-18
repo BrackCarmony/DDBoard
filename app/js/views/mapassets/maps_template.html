@@ -1,0 +1,55 @@
+
+<movepiece title = "Existing Maps">
+  <div class = "filter-box">
+    Search: <input ng-model = "filter.name">
+  </div>
+  <hr>
+  <div ng-repeat = "(key, map) in maps | filter:filter" class = "map-container">
+    <div class = "settings">
+    Name: <input ng-model = "map.name"> </br>
+      Player Size: <input ng-model = "map.playerSize" type ="number"></br>
+      <div class = "gridBox">
+        Grid Type: <select ng-model = "map.grid.type">
+                <option value = "">None</option>
+                <option value = "square">Square</option>
+                <option value = "flatTop">Hexagonal-1</option>
+                <option value = "pointTop">Hexagonal-2</option>
+              </select></br>
+        <span ng-show = "map.grid.type">
+        Grid X Offset:<input type = "number"></br>
+        Grid Y Offset:<input type = "number"></br>
+        </span>
+      </div>
+    </div>
+      <div class = "img-container">
+        {{map.imgId}}
+        <img ng-src = "{{map.url}}" ng-show = "map.url" >
+      </div>
+      <hr>
+  </div>
+</movepiece>
+<movepiece title = "New Map">
+  <div class = "map-container" droppable="setImage(event)">
+    <div class = "settings">
+      Name: <input ng-model = "newMap.name"> </br>
+      Url: <input ng-model = "newMap.url"></br>
+      Player Size: <input ng-model = "newMap.playerSize" type ="number"></br>
+      <div class = "gridBox">
+        Grid Type: <select ng-model = "newMap.grid.type">
+                <option value = "">None</option>
+                <option value = "square">Square</option>
+                <option value = "flatTop">Hexagonal-1</option>
+                <option value = "pointTop">Hexagonal-2</option>
+              </select></br>
+        <span ng-show = "newMap.grid.type">
+        Grid X Offset:<input type = "number"></br>
+        Grid Y Offset:<input type = "number"></br>
+        </span>
+      </div>
+      <button ng-disabled = "!(newMap.url && newMap.name) " ng-click = "addNewMap()">New Map</button>
+    </div>
+    <div class = "img-container">
+      <img ng-src = "{{newMap.url}}" ng-show = "newMap.url" >
+    </div>
+  </div>
+</movepiece>

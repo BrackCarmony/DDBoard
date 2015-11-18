@@ -1,0 +1,10 @@
+<div ng-class = "{'hidden':hidden}">
+  <div class = "title">
+    <i class="fa fa-arrows move-arrows" ng-mousedown="startDrag($event)"></i> 
+    {{title}} 
+    <i class="fa" ng-class = "{'fa':true, 'hide-toggle':true, 'fa-caret-square-o-up':!hidden ,'fa-caret-square-o-down':hidden}" ng-click = "hidden = !hidden"></i>
+  </div>
+  <div  ng-transclude>
+  </div ng-transclude>
+
+</div>

@@ -1,0 +1,70 @@
+<movepiece title = "Existing Figures">
+  <div class = "filter-box">
+    Search: <input ng-model = "filter.name">
+  </div>
+  <hr>
+  <div ng-repeat = "(key, character) in characters | filter:filter" class = "map-container">
+    
+     <div class = "settings">
+      Name: <input ng-model = "character.name"> </br>
+      Url: <input ng-model = "character.url"></br>
+      Scale: <input ng-model = "character.scale" type ="number"></br>
+      Gender: <select ng-model = "character.gender">
+                <option value = "male">Male</option>
+                <option value = "female">Female</option>
+                <option value = "other">Other</option>
+              </select></br>
+
+      Race: <input ng-model = "character.race"></br>
+      Character Type: <select ng-model = "character.characterType">
+                <option value = "character">Character</option>
+                <option value = "npc">NPC</option>
+                <option value = "enemy">Monster</option>
+              </select></br>
+              <button ng-click = 'saveCharacter(character)'>Save Changes</button>
+    </div>
+    <div class = "img-container">
+      <img ng-src = "{{character.url}}" ng-show = "character.url" >
+    </div>
+
+
+      <hr>
+  </div>
+</movepiece>
+<movepiece title = "New Figure">
+  <div class = "map-container" droppable="setImage(event)">
+    <div class = "settings">
+      Name: <input ng-model = "newCharacter.name"> </br>
+      Url: <input ng-model = "newCharacter.url"></br>
+      Scale: <input ng-model = "newCharacter.scale" type ="number"></br>
+      Gender: <select ng-model = "newCharacter.gender">
+                <option value = "male">Male</option>
+                <option value = "female">Female</option>
+                <option value = "other">Other</option>
+              </select></br>
+
+      Race: <select ng-model = "newCharacter.race">
+        <option value = "human">Human</option>
+        <option value = "elf">Elf</option>
+        <option value = "dwarf">Dwarf</option>
+        <option value = "halfling">Halfling</option>
+        <option value = "half-elf">Half-Elf</option>
+        <option value = "half-orc">Half-Orc</option>
+        <option value = "kender">Kender</option>
+        <option value = "dragonborn">DragonBorn</option>
+        
+      </select>Other:<input ng-model = "newCharacter.race"></br>
+      Character Type: <select ng-model = "newCharacter.characterType">
+                <option value = "character">Character</option>
+                <option value = "npc">NPC</option>
+                <option value = "enemy">Monster</option>
+              </select></br>
+
+
+      <button ng-disabled = "!(newCharacter.url && newCharacter.name) " ng-click = "addNewCharacter()">New Character</button>
+    </div>
+    <div class = "img-container">
+      <img ng-src = "{{newCharacter.url}}" ng-show = "newCharacter.url" >
+    </div>
+  </div>
+</movepiece>
